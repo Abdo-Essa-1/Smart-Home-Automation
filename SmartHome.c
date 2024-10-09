@@ -56,16 +56,22 @@ int main()
 	/************** Program **************/
 	for(;;)
 	{
+		/* Checking for flame emergency */
 		flame = FlameSensor_getValue();
 		if(flame)
 		{
+			/* Displaying alert and turning on the buzzer */
 			LCD_clearScreen();
 			LCD_displayString("Critical alert!");
 			Buzzer_on();
+
+			/* Waiting for the flame to end */
 			while(flame)
 			{
 				flame = FlameSensor_getValue();
 			}
+
+			/* Turn the emergency state off */
 			Buzzer_off();
 			LCD_clearScreen();
 			LCD_displayStringRowColumn(0, 3, "FAN is ");
@@ -124,8 +130,6 @@ int main()
 		{
 			/* FAN OFF */
 			LCD_displayStringRowColumn(0, 10, "OFF");
-
-			// fan off code
 			DcMotor_Rotate(MOTOR_STOP, 0);
 		}
 		else
@@ -134,22 +138,22 @@ int main()
 			LCD_displayStringRowColumn(0, 10, "ON ");
 			if(temp < 30)
 			{
-				// fan at 25% speed code
+				/* FAN at 25% speed */
 				DcMotor_Rotate(MOTOR_CW, 25);
 			}
 			else if(temp < 35)
 			{
-				// fan at 50% speed code
+				/* FAN at 50% speed */
 				DcMotor_Rotate(MOTOR_CW, 50);
 			}
 			else if(temp < 40)
 			{
-				// fan at 75% speed code
+				/* FAN at 75% speed */
 				DcMotor_Rotate(MOTOR_CW, 75);
 			}
 			else
 			{
-				// fan at 100% speed code
+				/* FAN at 100% speed */
 				DcMotor_Rotate(MOTOR_CW, 100);
 			}
 		}

@@ -2,7 +2,7 @@
  * adc.c
  *
  *  Created on: Sep 28, 2024
- *      Author: Essa
+ *      Author: Abdelrahman Essa
  */
 
 #include "adc.h"
