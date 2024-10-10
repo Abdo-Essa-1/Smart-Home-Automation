@@ -21,6 +21,10 @@
 #define ADC_INT_OFF          (0u)
 #define ADC_INT_EN           ADC_INT_OFF
 
+/*******************************************************************************
+ *                         Types Declaration                                   *
+ *******************************************************************************/
+
 /* Enum for the ADC reference voltage */
 typedef enum{
 	ADC_AREF, ADC_AVCC, ADC_INTERNAL_2_56 = 3
